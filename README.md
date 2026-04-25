@@ -9,6 +9,14 @@ npm create sveltekitbook@latest my-book
 You'll be walked through a handful of choices, then a working SvelteKit
 project drops onto disk. `npm run dev` and the book is live.
 
+## See it
+
+[**sveltekitbook-tour**](https://andygauge.github.io/sveltekitbook-tour/) —
+a sample book that explains the format itself. Source: [AndyGauge/sveltekitbook-tour](https://github.com/AndyGauge/sveltekitbook-tour).
+
+[**By Degrees**](https://andygauge.github.io/by-degrees/) — U.S. policy
+mapped on a −5..+5 spectrum. The first book built on this format.
+
 ## What you get
 
 **Always:**
