@@ -47,3 +47,12 @@ add fields, reorder, drop. Page numbers are assigned automatically by
 the sort order you define.
 
 Routes live in `src/routes/`. They're yours — edit freely.
+
+## Sibling: create-sveltekitslides
+
+[`create-sveltekitslides`](https://www.npmjs.com/package/create-sveltekitslides)
+is the slide-deck counterpart. Same scroll model, same `outline.js`
+philosophy, different chrome — every slide is a long page where the
+projected slide sits above the fold and rehearsal notes scroll into
+view below it. Use this package for long-form reader-driven content;
+use slides for twenty- to forty-minute talks.
