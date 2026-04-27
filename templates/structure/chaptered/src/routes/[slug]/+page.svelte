@@ -531,7 +531,6 @@
     margin: 0.2rem 0 0;
     padding: 0.9rem 1.1rem;
     background: rgba(20, 17, 13, 0.04);
-    border-left: 2px solid var(--accent);
     font-family: var(--mono, ui-monospace, SFMono-Regular, Menlo, monospace);
     font-size: 0.85rem;
     line-height: 1.55;
