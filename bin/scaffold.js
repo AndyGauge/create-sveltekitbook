@@ -60,11 +60,13 @@ function buildNavLinks(roomSet) {
  * @param {{
  *   dest: string, dir: string, title: string, author: string,
  *   githubRepo: string, continuum: 'none'|'timeline'|'spectrum',
- *   spectrumRange: number, rooms: string[]
+ *   spectrumRange: number, rooms: string[],
+ *   structure?: 'flat'|'chaptered'
  * }} answers
  */
 export function scaffold(answers) {
   const { dest, dir, title, author, githubRepo, continuum, spectrumRange } = answers;
+  const structure = answers.structure || 'flat';
 
   const rooms = new Set(answers.rooms || []);
   if (continuum === 'none') rooms.delete('continuum-page');
@@ -112,5 +114,8 @@ export function scaffold(answers) {
     } else {
       copyTree(path.join(TEMPLATES, 'rooms', room), dest, ctx);
     }
+  }
+  if (structure !== 'flat') {
+    copyTree(path.join(TEMPLATES, 'structure', structure), dest, ctx);
   }
 }
