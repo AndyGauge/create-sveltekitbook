@@ -26,7 +26,26 @@ mapped on a −5..+5 spectrum. The first book built on this format.
 - Wheel + touch swipe + keyboard nav
 - The [`sveltekitbook`](https://www.npmjs.com/package/sveltekitbook) runtime as a dependency
 
-**Continuum format** — the axis every page lives on:
+**Structure** — how sections are grouped:
+- **flat** (default) — one linear sequence of sections, page numbers run end-to-end
+- **chaptered** — sections grouped into chapters; reader gets a chapter rail, chapter intros, `[`/`]` keys to jump between chapters, and a chapter-grouped contents page. Page numbering stays linear across the whole book; chapters are derived from each section's `chapterId`. Mutually exclusive with timeline / spectrum continua.
+
+Chaptered sections can also use a `steps` array — a strict prose / code / prose / code rhythm, one step at a time:
+
+```js
+{
+  title: 'Push',
+  gesture: '...',
+  steps: [
+    { prose: 'First we mutate the list...', code: 'fn push(&mut self) { ... }', lang: 'rust' },
+    { prose: 'Then we hand back the new head...', code: '...', lang: 'rust' }
+  ]
+}
+```
+
+If `steps` is present, the renderer pairs each prose chunk with its code block in order. Use it for tutorials and code-led explainers.
+
+**Continuum format** — the axis every page lives on (flat structure only):
 - **none** — flat sequence, no viz
 - **timeline** — pages carry a `year`, rendered as dots on a decade axis
 - **spectrum** — pages carry a `spectrum` integer, rendered as colored dots across a −N..+N ramp with per-page palette shifts

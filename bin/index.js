@@ -48,6 +48,16 @@ async function main() {
       },
       {
         type: 'select',
+        name: 'structure',
+        message: 'Structure',
+        choices: [
+          { title: 'Flat — one linear sequence of sections', value: 'flat' },
+          { title: 'Chaptered — sections grouped into chapters with chapter nav', value: 'chaptered' }
+        ],
+        initial: 0
+      },
+      {
+        type: (prev) => (prev === 'chaptered' ? null : 'select'),
         name: 'continuum',
         message: 'Continuum format',
         choices: [
@@ -99,7 +109,8 @@ async function main() {
     title: a.title || 'Untitled',
     author: a.author || '',
     githubRepo: a.githubRepo || '',
-    continuum: a.continuum,
+    structure: a.structure || 'flat',
+    continuum: a.structure === 'chaptered' ? 'none' : a.continuum,
     spectrumRange: a.spectrumRange || 0,
     rooms: a.rooms || []
   });
