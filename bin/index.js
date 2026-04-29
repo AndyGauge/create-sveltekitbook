@@ -47,6 +47,16 @@ async function main() {
         initial: ''
       },
       {
+        type: 'text',
+        name: 'siteUrl',
+        message: 'Site URL (for unfurl previews — leave blank to skip)',
+        initial: (prev, values) => {
+          const repo = values.githubRepo || '';
+          const m = /^([^/]+)\/(.+)$/.exec(repo.trim());
+          return m ? `https://${m[1]}.github.io/${m[2]}` : '';
+        }
+      },
+      {
         type: 'select',
         name: 'structure',
         message: 'Structure',
@@ -109,6 +119,7 @@ async function main() {
     title: a.title || 'Untitled',
     author: a.author || '',
     githubRepo: a.githubRepo || '',
+    siteUrl: (a.siteUrl || '').trim().replace(/\/$/, ''),
     structure: a.structure || 'flat',
     continuum: a.structure === 'chaptered' ? 'none' : a.continuum,
     spectrumRange: a.spectrumRange || 0,

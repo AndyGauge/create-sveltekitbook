@@ -19,6 +19,9 @@ const raw = [
   {
     title: 'A position on the left',
     spectrum: -2,
+    // tldr: one-line summary used for unfurl previews (Slack, iMessage, etc).
+    // Optional — pages without it just unfurl with the title only.
+    tldr: 'A one-sentence summary that will appear when this page\'s URL is pasted into Slack or iMessage.',
     gesture: 'Short hook — the sentence the reader could quote back.',
     body: 'Body paragraph. Use **bold** for emphasis, *italic* sparingly.',
     eli5: 'Plain-language version.'

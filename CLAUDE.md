@@ -59,10 +59,11 @@ The `ctx` object is built once in `scaffold()` and includes booleans like `hasGl
 This package ships to npm as `create-sveltekitbook`. Cut a release after a feature PR is merged to `main`:
 
 1. Bump `version` in `package.json` — semver, against what `npm view create-sveltekitbook version` reports. New scaffolder feature (new room, new continuum, new structure) → minor. Bug fix or doc-only → patch. Breaking change to scaffolded output's directory layout, prompt API, or template variables → major.
-2. Commit the bump on its own: `chore: release vX.Y.Z` (or follow the existing `X.Y.Z — short summary` style from the log).
-3. Tag the release commit: `git tag vX.Y.Z` — annotated (`-a -m`) is fine but a lightweight tag is enough here. Tags are the only release record this repo keeps; there is no CHANGELOG.md.
-4. Push both: `git push origin main && git push origin vX.Y.Z`.
-5. `npm publish` from a clean working tree. The published tarball includes `bin/` and `templates/` only (per `files` in `package.json`) — verify with `npm pack --dry-run` if anything in those directories has been added or renamed.
+2. Move the `Unreleased` entries in `CHANGELOG.md` under a new `[X.Y.Z] — YYYY-MM-DD` heading. Keep an empty `Unreleased` section at the top for the next cycle.
+3. Commit the bump + changelog on its own: `chore: release vX.Y.Z` (or follow the existing `X.Y.Z — short summary` style from the log).
+4. Tag the release commit: `git tag vX.Y.Z` — annotated (`-a -m`) is fine but a lightweight tag is enough here.
+5. Push both: `git push origin main && git push origin vX.Y.Z`.
+6. `npm publish` from a clean working tree. The published tarball includes `bin/` and `templates/` only (per `files` in `package.json`) — verify with `npm pack --dry-run` if anything in those directories has been added or renamed.
 
 Do NOT publish with uncommitted changes — what ships should match the tag exactly.
 

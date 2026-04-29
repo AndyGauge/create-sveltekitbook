@@ -59,13 +59,15 @@ function buildNavLinks(roomSet) {
 /**
  * @param {{
  *   dest: string, dir: string, title: string, author: string,
- *   githubRepo: string, continuum: 'none'|'timeline'|'spectrum',
+ *   githubRepo: string, siteUrl?: string,
+ *   continuum: 'none'|'timeline'|'spectrum',
  *   spectrumRange: number, rooms: string[],
  *   structure?: 'flat'|'chaptered'
  * }} answers
  */
 export function scaffold(answers) {
   const { dest, dir, title, author, githubRepo, continuum, spectrumRange } = answers;
+  const siteUrl = (answers.siteUrl || '').replace(/\/$/, '');
   const structure = answers.structure || 'flat';
 
   const rooms = new Set(answers.rooms || []);
@@ -79,6 +81,7 @@ export function scaffold(answers) {
     author,
     authorEscaped: author.replace(/"/g, '\\"'),
     githubRepo,
+    siteUrl,
     giscusRepo: githubRepo,
     giscusRepoId: '',
     giscusCategory: 'General',

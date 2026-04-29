@@ -9,6 +9,9 @@ const raw = [
     chapterTitle: 'Beginnings',
     chapterIntro: 'A short opening chapter to set up the format. Each chapter starts with a one-line intro that renders above its first section.',
     title: 'First section',
+    // tldr: one-line summary used for unfurl previews (Slack, iMessage, etc).
+    // Optional — pages without it just unfurl with the title only.
+    tldr: 'A one-sentence summary that will appear when this page\'s URL is pasted into Slack or iMessage.',
     gesture: 'Open with the thing you want the reader to remember.',
     body: 'Then explain it. Use **bold** for emphasis, *italic* sparingly. Cite sources. Link out freely.',
     eli5: 'Plain-language version of the same point, so a reader with no background can follow.'
