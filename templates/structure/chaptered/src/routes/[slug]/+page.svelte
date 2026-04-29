@@ -9,7 +9,8 @@
   import { createPager } from 'sveltekitbook/gestures';
   import { md } from 'sveltekitbook/md';
   import Giscus from 'sveltekitbook/Giscus.svelte';
-  import { TITLE, GISCUS } from '$lib/config.js';
+  import PageMeta from 'sveltekitbook/PageMeta.svelte';
+  import { TITLE, GISCUS, SITE_URL } from '$lib/config.js';
   {{glossaryImport}}
 
   let { data } = $props();
@@ -80,6 +81,7 @@
   let hintProgress = $derived(Math.min(1, Math.abs(dragOffset) / 70));
   let mdOpts = $derived({{mdOpts}});
   let chRoman = $derived(romanize(chapter?.num));
+  let canonical = $derived(SITE_URL ? `${SITE_URL}/${section.num}` : undefined);
 
   function romanize(n) {
     if (!n) return '';
@@ -90,6 +92,13 @@
 </script>
 
 <svelte:window onkeydown={key} />
+
+<PageMeta
+  title={`${section.title} — ${TITLE}`}
+  description={section.tldr}
+  url={canonical}
+  siteName={TITLE}
+/>
 
 <main
   class="page"
