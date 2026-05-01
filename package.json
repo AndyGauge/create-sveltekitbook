@@ -1,6 +1,6 @@
 {
   "name": "create-sveltekitbook",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Scaffold a SvelteKit book: cover, content pages, optional glossary/index/authors/topics, with timeline or spectrum continuum.",
   "type": "module",
   "author": "Andrew Gauger",
@@ -14,7 +14,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/AndyGauge/create-sveltekitbook.git"
+    "url": "git+https://github.com/AndyGauge/create-sveltekitbook.git"
   },
   "dependencies": {
     "prompts": "^2.4.2"

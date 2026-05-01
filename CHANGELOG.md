@@ -12,6 +12,8 @@ Versioning rule of thumb (mirrors `CLAUDE.md`):
 
 ## [Unreleased]
 
+## [0.3.0] — 2026-05-01
+
 ### Added
 - New `Site URL` prompt — auto-derives a `https://{user}.github.io/{repo}`
   default from the GitHub repo answer; blank disables canonical/og:url.
