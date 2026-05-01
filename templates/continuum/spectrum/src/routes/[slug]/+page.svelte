@@ -4,7 +4,7 @@
   import { next, prev, flat, SPECTRUM_LABELS } from '$lib/outline.js';
   import { styleFor, modeFor } from '$lib/palette.js';
   import { createPager } from 'sveltekitbook/gestures';
-  import { md } from 'sveltekitbook/md';
+  import { md, mdBlock } from 'sveltekitbook/md';
   import Giscus from 'sveltekitbook/Giscus.svelte';
   import PageMeta from 'sveltekitbook/PageMeta.svelte';
   import Spectrum from '$lib/Spectrum.svelte';
@@ -101,7 +101,7 @@
     {/if}
 
     {#if section.body}
-      <p class="body-text">{@html md(section.body, mdOpts)}</p>
+      <div class="body-text">{@html mdBlock(section.body, mdOpts)}</div>
     {/if}
 
     {#if section.citation || section.link}
@@ -118,7 +118,7 @@
     {#if section.eli5}
       <aside class="eli5">
         <div class="eli5-label">In plain terms</div>
-        <p class="eli5-body">{@html md(section.eli5, mdOpts)}</p>
+        <div class="eli5-body">{@html mdBlock(section.eli5, mdOpts)}</div>
       </aside>
     {/if}
 
@@ -207,6 +207,8 @@
   .title { grid-column: 2; font-family: var(--serif); font-weight: 300; font-style: italic; font-size: clamp(2.4rem, 6vw, 6rem); line-height: 0.97; letter-spacing: -0.025em; color: var(--ink); max-width: 18ch; }
   .gesture { grid-column: 2; font-family: var(--serif); font-weight: 300; font-size: clamp(1.1rem, 1.5vw, 1.4rem); line-height: 1.4; color: var(--ink); max-width: 44ch; margin-top: 1.6rem; border-left: 2px solid var(--accent); padding-left: 1.3rem; }
   .body-text { grid-column: 2; font-family: var(--serif); font-weight: 300; font-size: clamp(0.95rem, 1.05vw, 1.05rem); line-height: 1.55; color: var(--ink); max-width: 56ch; margin-top: 1.2rem; padding-left: 1.3rem; }
+  .body-text :global(p) { margin: 0 0 1.05em; }
+  .body-text :global(p:last-child) { margin-bottom: 0; }
 
   .source { grid-column: 2; margin-top: 1.4rem; padding: 0.8rem 0 0 1.3rem; border-top: 1px dotted var(--rule); max-width: 56ch; display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; flex-wrap: wrap; }
   .cite { font-family: var(--serif); font-style: italic; font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
@@ -218,6 +220,8 @@
   .page[data-mode='dark']  .eli5 { background: rgba(244, 239, 227, 0.06); }
   .eli5-label { font-family: var(--sans); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.3em; color: var(--accent); margin-bottom: 0.6rem; }
   .eli5-body { font-family: var(--serif); font-weight: 300; font-size: clamp(0.95rem, 1.05vw, 1.05rem); line-height: 1.55; color: var(--ink); }
+  .eli5-body :global(p) { margin: 0 0 0.9em; }
+  .eli5-body :global(p:last-child) { margin-bottom: 0; }
 
   .bottom { font-family: var(--sans); }
   .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 2rem; border-top: 1px solid var(--rule); padding-top: 1.2rem; margin-top: 1rem; }

@@ -23,8 +23,20 @@ Versioning rule of thumb (mirrors `CLAUDE.md`):
   title, page title, and the section's `tldr`.
 
 ### Changed
-- Scaffolded `package.json` now depends on `sveltekitbook ^0.2.0`
-  (required for the `PageMeta.svelte` export).
+- Scaffolded `package.json` now depends on `sveltekitbook ^0.3.0`
+  (required for the `mdBlock` export — see below).
+- All four `[slug]/+page.svelte` templates render multi-paragraph fields
+  (section bodies, ELI5 blocks, chaptered chapter intros) with `mdBlock`
+  inside `<div>` wrappers instead of inline `md` inside `<p>` wrappers.
+  CSS adds `:global(p)` margin rules so paragraphs are spaced.
+
+### Fixed
+- Section bodies, ELI5 blocks, and chapter intros containing blank
+  lines (`\n\n`) now render as separate paragraphs. Previously the
+  templates wrapped these fields in a single `<p>` and called the
+  inline-only `md()` helper — which preserved `\n\n` as whitespace
+  but never produced `<p>` boundaries, so multi-paragraph source
+  rendered as one collapsed wall of text.
 
 ## [0.2.0] — 2026-04-27
 
