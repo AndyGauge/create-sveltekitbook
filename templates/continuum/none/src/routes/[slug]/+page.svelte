@@ -3,7 +3,7 @@
   import { base } from '$app/paths';
   import { next, prev, flat } from '$lib/outline.js';
   import { createPager } from 'sveltekitbook/gestures';
-  import { md } from 'sveltekitbook/md';
+  import { md, mdBlock } from 'sveltekitbook/md';
   import Giscus from 'sveltekitbook/Giscus.svelte';
   import PageMeta from 'sveltekitbook/PageMeta.svelte';
   import { TITLE, GISCUS, SITE_URL } from '$lib/config.js';
@@ -103,7 +103,7 @@
     {/if}
 
     {#if section.body}
-      <p class="body-text">{@html md(section.body, mdOpts)}</p>
+      <div class="body-text">{@html mdBlock(section.body, mdOpts)}</div>
     {/if}
 
     {#if section.citation || section.link}
@@ -122,7 +122,7 @@
     {#if section.eli5}
       <aside class="eli5">
         <div class="eli5-label">In plain terms</div>
-        <p class="eli5-body">{@html md(section.eli5, mdOpts)}</p>
+        <div class="eli5-body">{@html mdBlock(section.eli5, mdOpts)}</div>
       </aside>
     {/if}
 
@@ -271,6 +271,8 @@
     margin-top: 1.2rem;
     padding-left: 1.3rem;
   }
+  .body-text :global(p) { margin: 0 0 1.05em; }
+  .body-text :global(p:last-child) { margin-bottom: 0; }
 
   .source {
     grid-column: 2;
@@ -330,6 +332,8 @@
     line-height: 1.55;
     color: var(--ink);
   }
+  .eli5-body :global(p) { margin: 0 0 0.9em; }
+  .eli5-body :global(p:last-child) { margin-bottom: 0; }
 
   .bottom { font-family: var(--sans); }
 
