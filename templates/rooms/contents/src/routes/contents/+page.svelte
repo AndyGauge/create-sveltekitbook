@@ -1,6 +1,7 @@
 <script>
   import { base } from '$app/paths';
   import { flat } from '$lib/outline.js';
+  import { md } from 'sveltekitbook/md';
   import { TITLE } from '$lib/config.js';
 
   // Reset to a neutral palette + allow the contents page to scroll past the
@@ -36,7 +37,12 @@
       <li>
         <a class="entry" href="{base}/{e.num}">
           <span class="entry-num">{e.num}</span>
-          <span class="entry-title">{e.title}</span>
+          <span class="entry-text">
+            <span class="entry-title">{e.title}</span>
+            {#if e.hook ?? e.gesture}
+              <span class="entry-hook">{@html md(e.hook ?? e.gesture)}</span>
+            {/if}
+          </span>
           {#if e.year !== undefined}<span class="entry-meta">{e.year}</span>{/if}
         </a>
       </li>
@@ -67,14 +73,17 @@
     grid-template-columns: 3ch minmax(0, 1fr) auto;
     gap: 1.2rem;
     align-items: baseline;
-    padding: 0.6rem 0;
+    padding: 1rem 0;
     border-bottom: 1px dotted var(--rule);
     color: var(--ink);
   }
   .entry:hover { background: rgba(20, 17, 13, 0.03); }
 
   .entry-num { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.18em; color: var(--muted); }
+  .entry-text { display: flex; flex-direction: column; gap: 0.35rem; min-width: 0; }
   .entry-title { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(0.98rem, 1.15vw, 1.12rem); color: var(--ink); overflow-wrap: break-word; }
+  .entry-hook { font-family: var(--serif); font-weight: 300; font-size: clamp(0.88rem, 1vw, 0.98rem); line-height: 1.45; color: var(--muted); max-width: 60ch; }
+  .entry-hook :global(code) { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.92em; background: rgba(20, 17, 13, 0.06); padding: 0 0.3em; border-radius: 3px; color: var(--ink); }
   .entry-meta { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 
   @media (max-width: 720px) {
