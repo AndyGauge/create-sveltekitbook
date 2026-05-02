@@ -1,4 +1,4 @@
-// Term definitions. Reference any of these from a section's `body`, `gesture`,
+// Term definitions. Reference any of these from a section's `body`, `hook`,
 // `eli5`, or any other rendered-through-md field as `[[term]]` — it will
 // auto-link to `/glossary#term-slug`. Case-insensitive match.
 //

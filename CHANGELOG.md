@@ -12,6 +12,28 @@ Versioning rule of thumb (mirrors `CLAUDE.md`):
 
 ## [Unreleased]
 
+### Changed
+- **Breaking:** the per-section pull-quote field is now `hook` instead
+  of `gesture`. The old name collided with `sveltekitbook/gestures`,
+  the runtime pager — "gesture" properly belongs to interaction design
+  (swipe, tap, drag), not to a piece of typographic content. The
+  pager module keeps its name; only the data field was renamed.
+  Existing books need to rename `gesture:` → `hook:` in `outline.js`
+  and `[[gesture]]` → `[[hook]]` in any body text. The slug
+  template's CSS class, glossary entry, and example outlines were
+  updated to match.
+
+### Fixed
+- `[slug]/+page.svelte` templates now style links in body copy.
+  External links rendered by `md`/`mdBlock` get a solid accent
+  underline; `[[term]]` glossary links get a dotted underline.
+  Previously the scaffolded `app.css` stripped all link styling
+  globally and per-page CSS only re-added it for nav/source/glossary
+  contexts, so external links inside `body`, `hook`, `eli5`, and
+  `citation` rendered as invisible plain text.
+- Glossary page definitions (`dd`) now also style links the same
+  way — definitions can contain `[label](url)` links too.
+
 ## [0.3.0] — 2026-05-01
 
 ### Added

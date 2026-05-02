@@ -175,8 +175,8 @@
 
     <h1 class="title">{section.title}</h1>
 
-    {#if section.gesture}
-      <p class="gesture">{@html md(section.gesture, mdOpts)}</p>
+    {#if section.hook}
+      <p class="hook">{@html md(section.hook, mdOpts)}</p>
     {/if}
 
     {#if section.body}
@@ -466,7 +466,7 @@
     max-width: 18ch;
   }
 
-  .gesture {
+  .hook {
     grid-column: 2;
     font-family: var(--serif);
     font-weight: 300;
@@ -492,6 +492,34 @@
   }
   .body-text :global(p) { margin: 0 0 1.05em; }
   .body-text :global(p:last-child) { margin-bottom: 0; }
+
+  .body-text :global(a),
+  .hook :global(a),
+  .eli5-body :global(a),
+  .cite :global(a),
+  .ch-intro-body :global(a),
+  .step-prose :global(a) {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+  .body-text :global(a:hover),
+  .hook :global(a:hover),
+  .eli5-body :global(a:hover),
+  .cite :global(a:hover),
+  .ch-intro-body :global(a:hover),
+  .step-prose :global(a:hover) {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+  .body-text :global(a.hw-glossary-link),
+  .hook :global(a.hw-glossary-link),
+  .eli5-body :global(a.hw-glossary-link),
+  .cite :global(a.hw-glossary-link),
+  .ch-intro-body :global(a.hw-glossary-link),
+  .step-prose :global(a.hw-glossary-link) {
+    border-bottom-style: dotted;
+  }
 
   .steps {
     grid-column: 2;
@@ -724,20 +752,20 @@
       gap: 2.5vw;
       padding: 1.5vw 0;
     }
-    .number, .title, .gesture, .body-text, .source, .eli5, .ch-next, .steps {
+    .number, .title, .hook, .body-text, .source, .eli5, .ch-next, .steps {
       grid-column: 1;
       max-width: none;
     }
     .step { padding-left: 0.7rem; }
     .step-code { font-size: 0.78rem; padding: 0.7rem 0.8rem; }
-    .title, .gesture, .body-text, .cite, .eli5-body {
+    .title, .hook, .body-text, .cite, .eli5-body {
       overflow-wrap: break-word;
       word-break: break-word;
       hyphens: auto;
     }
     .number { font-size: clamp(3rem, 12vw, 5rem); margin-top: 0.2rem; }
     .title { font-size: clamp(1.9rem, 7vw, 3rem); }
-    .gesture { font-size: clamp(1rem, 3.8vw, 1.2rem); padding-left: 0.9rem; }
+    .hook { font-size: clamp(1rem, 3.8vw, 1.2rem); padding-left: 0.9rem; }
     .body-text { padding-left: 0.9rem; }
     .source { padding-left: 0.9rem; }
     .nav { gap: 0.8rem; }

@@ -96,8 +96,8 @@
 
     <h1 class="title">{section.title}</h1>
 
-    {#if section.gesture}
-      <p class="gesture">{@html md(section.gesture, mdOpts)}</p>
+    {#if section.hook}
+      <p class="hook">{@html md(section.hook, mdOpts)}</p>
     {/if}
 
     {#if section.body}
@@ -205,10 +205,32 @@
 
   .number { grid-column: 1; font-family: var(--serif); font-weight: 200; font-size: clamp(4rem, 9vw, 9rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--muted); font-variant-numeric: lining-nums tabular-nums; margin-top: 0.5rem; }
   .title { grid-column: 2; font-family: var(--serif); font-weight: 300; font-style: italic; font-size: clamp(2.4rem, 6vw, 6rem); line-height: 0.97; letter-spacing: -0.025em; color: var(--ink); max-width: 18ch; }
-  .gesture { grid-column: 2; font-family: var(--serif); font-weight: 300; font-size: clamp(1.1rem, 1.5vw, 1.4rem); line-height: 1.4; color: var(--ink); max-width: 44ch; margin-top: 1.6rem; border-left: 2px solid var(--accent); padding-left: 1.3rem; }
+  .hook { grid-column: 2; font-family: var(--serif); font-weight: 300; font-size: clamp(1.1rem, 1.5vw, 1.4rem); line-height: 1.4; color: var(--ink); max-width: 44ch; margin-top: 1.6rem; border-left: 2px solid var(--accent); padding-left: 1.3rem; }
   .body-text { grid-column: 2; font-family: var(--serif); font-weight: 300; font-size: clamp(0.95rem, 1.05vw, 1.05rem); line-height: 1.55; color: var(--ink); max-width: 56ch; margin-top: 1.2rem; padding-left: 1.3rem; }
   .body-text :global(p) { margin: 0 0 1.05em; }
   .body-text :global(p:last-child) { margin-bottom: 0; }
+
+  .body-text :global(a),
+  .hook :global(a),
+  .eli5-body :global(a),
+  .cite :global(a) {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+  .body-text :global(a:hover),
+  .hook :global(a:hover),
+  .eli5-body :global(a:hover),
+  .cite :global(a:hover) {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+  .body-text :global(a.hw-glossary-link),
+  .hook :global(a.hw-glossary-link),
+  .eli5-body :global(a.hw-glossary-link),
+  .cite :global(a.hw-glossary-link) {
+    border-bottom-style: dotted;
+  }
 
   .source { grid-column: 2; margin-top: 1.4rem; padding: 0.8rem 0 0 1.3rem; border-top: 1px dotted var(--rule); max-width: 56ch; display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; flex-wrap: wrap; }
   .cite { font-family: var(--serif); font-style: italic; font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
@@ -242,11 +264,11 @@
   @media (max-width: 720px) {
     .page { padding: 4vw 7vw; }
     .body { grid-template-columns: 1fr; gap: 2.5vw; padding: 1.5vw 0; }
-    .number, .title, .gesture, .body-text, .source, .eli5 { grid-column: 1; max-width: none; }
-    .title, .gesture, .body-text, .cite, .eli5-body { overflow-wrap: break-word; word-break: break-word; hyphens: auto; }
+    .number, .title, .hook, .body-text, .source, .eli5 { grid-column: 1; max-width: none; }
+    .title, .hook, .body-text, .cite, .eli5-body { overflow-wrap: break-word; word-break: break-word; hyphens: auto; }
     .number { font-size: clamp(3rem, 12vw, 5rem); margin-top: 0.2rem; }
     .title { font-size: clamp(1.9rem, 7vw, 3rem); }
-    .gesture { font-size: clamp(1rem, 3.8vw, 1.2rem); padding-left: 0.9rem; }
+    .hook { font-size: clamp(1rem, 3.8vw, 1.2rem); padding-left: 0.9rem; }
     .body-text { padding-left: 0.9rem; }
     .source { padding-left: 0.9rem; }
     .nav { gap: 0.8rem; }

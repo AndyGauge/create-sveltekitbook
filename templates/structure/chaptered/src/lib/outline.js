@@ -12,7 +12,7 @@ const raw = [
     // tldr: one-line summary used for unfurl previews (Slack, iMessage, etc).
     // Optional — pages without it just unfurl with the title only.
     tldr: 'A one-sentence summary that will appear when this page\'s URL is pasted into Slack or iMessage.',
-    gesture: 'Open with the thing you want the reader to remember.',
+    hook: 'Open with the thing you want the reader to remember.',
     body: 'Then explain it. Use **bold** for emphasis, *italic* sparingly. Cite sources. Link out freely.',
     eli5: 'Plain-language version of the same point, so a reader with no background can follow.'
   },
@@ -21,7 +21,7 @@ const raw = [
     chapterNum: 1,
     chapterTitle: 'Beginnings',
     title: 'Second section',
-    gesture: 'Each section gets a short hook — one sentence the reader could quote back.',
+    hook: 'Each section gets a short hook — one sentence the reader could quote back.',
     body: 'Sections within a chapter share `chapterId`. Keep them in reading order; chapters are derived from this array, not declared separately.'
   },
   {
@@ -29,7 +29,7 @@ const raw = [
     chapterNum: 1,
     chapterTitle: 'Beginnings',
     title: 'Third section',
-    gesture: 'A section without `eli5` just omits that block. Every optional field is optional.',
+    hook: 'A section without `eli5` just omits that block. Every optional field is optional.',
     body: 'Write only what matters.'
   },
   {
@@ -38,7 +38,7 @@ const raw = [
     chapterTitle: 'Middles',
     chapterIntro: 'A new `chapterId` opens the next chapter. Page numbers keep counting from where the previous chapter left off.',
     title: 'Crossing over',
-    gesture: 'When the reader hits the first section of a new chapter, the chapter intro renders above the section title.',
+    hook: 'When the reader hits the first section of a new chapter, the chapter intro renders above the section title.',
     body: 'Reaching this section, the reader sees a "Chapter 2 — Middles" header and the chapter intro before the section content.'
   },
   {
@@ -46,7 +46,7 @@ const raw = [
     chapterNum: 2,
     chapterTitle: 'Middles',
     title: 'Last section',
-    gesture: 'The bottom nav shows the next chapter when you reach the end of a chapter.',
+    hook: 'The bottom nav shows the next chapter when you reach the end of a chapter.',
     body: 'Use the chapter rail at the top to jump between chapters. Use prev/next at the bottom to walk linearly.'
   },
   {
@@ -54,7 +54,7 @@ const raw = [
     chapterNum: 2,
     chapterTitle: 'Middles',
     title: 'Code-led section',
-    gesture: 'For tutorials and explainers, the `steps` field lets a section alternate prose and code in a strict rhythm.',
+    hook: 'For tutorials and explainers, the `steps` field lets a section alternate prose and code in a strict rhythm.',
     steps: [
       {
         prose: 'A step is one short prose paragraph followed by one code block. Steps render in order, prose-code-prose-code, no other ordering allowed.',

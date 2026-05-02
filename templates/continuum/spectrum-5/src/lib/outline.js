@@ -22,19 +22,19 @@ const raw = [
     // tldr: one-line summary used for unfurl previews (Slack, iMessage, etc).
     // Optional — pages without it just unfurl with the title only.
     tldr: 'A one-sentence summary that will appear when this page\'s URL is pasted into Slack or iMessage.',
-    gesture: 'Short hook — the sentence the reader could quote back.',
+    hook: 'Short hook — the sentence the reader could quote back.',
     body: 'Body paragraph. Use **bold** for emphasis, *italic* sparingly.',
     eli5: 'Plain-language version.'
   },
   {
     title: 'The center',
     spectrum: 0,
-    gesture: 'The neutral stop. Dark ink on a warm light palette.'
+    hook: 'The neutral stop. Dark ink on a warm light palette.'
   },
   {
     title: 'Far right',
     spectrum: 4,
-    gesture: 'Another position. Page palette shifts per section.',
+    hook: 'Another position. Page palette shifts per section.',
     body: 'Add `invert: true` to flip a section into the dark outlier palette.'
   }
 ];
