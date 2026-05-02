@@ -7,7 +7,7 @@ const raw = [
     // tldr: one-line summary used for unfurl previews (Slack, iMessage, etc).
     // Optional — pages without it just unfurl with the title only.
     tldr: 'A one-sentence summary that will appear when this page\'s URL is pasted into Slack or iMessage.',
-    gesture: 'Open with the thing you want the reader to remember.',
+    hook: 'Open with the thing you want the reader to remember.',
     body: 'Then explain it. Use **bold** for emphasis, *italic* sparingly. Cite sources. Link out freely.',
     citation: '',
     link: '',
@@ -15,13 +15,13 @@ const raw = [
   },
   {
     title: 'Second section',
-    gesture: 'Every section gets a short hook — one sentence the reader could quote back.',
+    hook: 'Every section gets a short hook — one sentence the reader could quote back.',
     body: 'The body is the argument, the context, the texture. Keep it under 400 words if you can — this is a one-page format.',
     eli5: 'If you can\'t explain it plainly, you haven\'t landed it yet.'
   },
   {
     title: 'Third section',
-    gesture: 'A section without an `eli5` field just omits that block. Every optional field is optional.',
+    hook: 'A section without an `eli5` field just omits that block. Every optional field is optional.',
     body: 'Write only what matters.'
   }
 ];

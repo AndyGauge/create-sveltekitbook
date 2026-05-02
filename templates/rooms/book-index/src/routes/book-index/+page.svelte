@@ -8,7 +8,7 @@
   // Terms are collected case-insensitively; the display form is the first
   // casing seen.
   const occurrences = new Map();
-  const fields = ['gesture', 'body', 'eli5', 'citation'];
+  const fields = ['hook', 'body', 'eli5', 'citation'];
 
   for (const s of flat) {
     for (const f of fields) {

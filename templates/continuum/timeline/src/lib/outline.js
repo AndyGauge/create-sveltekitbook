@@ -8,22 +8,22 @@ const raw = [
     // tldr: one-line summary used for unfurl previews (Slack, iMessage, etc).
     // Optional — pages without it just unfurl with the title only.
     tldr: 'A one-sentence summary that will appear when this page\'s URL is pasted into Slack or iMessage.',
-    gesture: 'A one-sentence hook the reader could quote back.',
+    hook: 'A one-sentence hook the reader could quote back.',
     body: 'Body paragraph. Use **bold** for emphasis, *italic* sparingly.',
     eli5: 'Plain-language version of the same point.'
   },
   {
     title: 'A later moment',
     year: 1995,
-    gesture: 'Another turning point — note how the year drives position.',
-    body: 'You can drop `eli5` or `body` on any section. Only `title`, `year`, and `gesture` are recommended.',
+    hook: 'Another turning point — note how the year drives position.',
+    body: 'You can drop `eli5` or `body` on any section. Only `title`, `year`, and `hook` are recommended.',
     citation: 'Source, *Journal*, Year.',
     link: 'https://example.com'
   },
   {
     title: 'The present',
     year: 2024,
-    gesture: 'The timeline widget at the bottom of every page positions you here.'
+    hook: 'The timeline widget at the bottom of every page positions you here.'
   }
 ];
 

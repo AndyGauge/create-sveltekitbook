@@ -105,6 +105,16 @@
   .see a { color: var(--accent); border-bottom: 1px solid transparent; }
   .see a:hover { border-bottom-color: var(--accent); }
 
+  dd :global(a) {
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+  dd :global(a:hover) {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+  dd :global(a.hw-glossary-link),
   .entry :global(a.hw-glossary-link) {
     color: var(--accent);
     border-bottom: 1px dotted var(--accent);

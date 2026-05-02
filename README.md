@@ -35,7 +35,7 @@ Chaptered sections can also use a `steps` array — a strict prose / code / pros
 ```js
 {
   title: 'Push',
-  gesture: '...',
+  hook: '...',
   steps: [
     { prose: 'First we mutate the list...', code: 'fn push(&mut self) { ... }', lang: 'rust' },
     { prose: 'Then we hand back the new head...', code: '...', lang: 'rust' }
